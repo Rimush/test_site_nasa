@@ -26,8 +26,7 @@ SECRET_KEY = 'django-insecure-y5_0^6qs7v*261=vcjbf&bf+3lp6kz@ths!9u%$uzrw!in8j#-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
-
+ALLOWED_HOSTS = ['127.0.0.1', '192.168.100.4', '192.168.100.6']
 
 # Application definition
 
@@ -56,12 +55,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'core.urls'
 
-TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR],
+        'DIRS': [
+            BASE_DIR / 'templates'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -91,7 +90,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -110,6 +108,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+THUMBNAIL_PROCESSORS = (
+    'easy_thumbnails.processors.colorspace',
+    'easy_thumbnails.processors.autocrop',
+    'easy_thumbnails.processors.scale_and_crop',
+    'filer.thumbnail_processors.scale_and_crop_with_subject_location',
+    'easy_thumbnails.processors.filters',
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
@@ -126,7 +131,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+#FILER_CANONICAL_URL = 'sharing/'
+
+STATIC_URL = '/static/'
+STATIC_ROOT = 'static'
+
+STATICFILES_DIRS = []
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

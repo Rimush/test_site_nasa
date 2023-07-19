@@ -1,0 +1,508 @@
+@font-face
+  font-family 'Montserrat'
+  src url(../fonts/Montserrat-Regular.ttf)
+
+@font-face
+  font-family 'Montserrat Bold'
+  src url(../fonts/Montserrat-Bold.ttf)
+
+body
+  margin 0px
+  padding 0px
+  background-color #FAFAFA
+
+.anchor
+  width 0px
+  height 0px
+  position absolute
+  top -70px
+
+.container
+
+  &--max-1200
+    max-width 1200px
+
+.background-color
+
+  &--dark
+    background-color #0A121E
+
+  &--grey
+    background-color #FAFAFA
+
+  &--gray
+    background-color #3C3C3C
+
+.substrate
+  height 90px
+  margin 0px
+  padding 0px
+
+  @media (max-width: 462px)
+    height 19.5vw
+
+  @media (max-width: 360px)
+    height 70px
+
+.navbar
+
+  &--height
+    height 90px
+
+    @media (max-width: 462px)
+      height 19.5vw
+
+    @media (max-width: 360px)
+      height 70px
+
+  &-collapse
+
+    &--my
+      justify-content center
+      margin 0px
+      padding 0 118px 0 0
+
+      @media (max-width: 768px)
+        padding-right 0px
+
+  &-toggler
+
+    &--my
+      border none
+
+      &:focus
+        box-shadow none
+
+    &-my-icon
+      display inline-block
+      width 30px
+      height 30px
+      margin 0 0 0 -2px
+      padding 0px
+      vertical-align middle
+      background-image url("../images/menu-close.png")
+      background-repeat no-repeat
+      background-position center
+      background-size 100%
+
+    .collapsed &-my-icon
+      background-image url("../images/menu.png")
+
+  &-nav
+
+    &--my
+      @media (max-width: 768px)
+        padding-top 30px
+
+    &__item
+      float left
+      margin 33px 23px
+
+    &__link
+      font-family Montserrat
+      font-size 16px
+      font-weight 600
+      line-height 20px
+      letter-spacing 0.05em
+      text-align left
+      text-transform uppercase
+      text-decoration none
+      color #FFF
+
+      &:hover
+        color #FFF
+        text-decoration underline
+
+  &-brand
+
+    &--my
+      margin 0px
+      padding 0 0 0 30px
+      font-size unset
+      transition 0.8s ease
+
+      @media (max-width: 600px)
+        padding-left 5vw
+
+      @media (max-width: 360px)
+        padding-left 18px
+
+    &__image
+      width 120px
+      margin 0px
+      padding 0px
+
+      @media (max-width: 540px)
+        width 22.2vw
+
+      @media (max-width: 360px)
+        width 80px
+
+.auth
+  width 0px
+
+.btn
+
+  &__auth
+    width 88px
+    height 44px
+    margin 0px
+    padding 0px
+    border-radius 4px
+    background #FF342B
+    font-family Montserrat
+    font-size 15px
+    font-weight 700
+    line-height 44px
+    letter-spacing 0.14em
+    text-align center
+    text-transform uppercase
+    text-decoration none
+    color #FFF
+    position absolute
+    top 23px
+    right 30px
+    transition background-color 0.8s ease, color 0.8s ease
+
+    &:hover
+      background-color #FFF
+      color #FF342B
+
+    @media (max-width: 768px)
+      top -2px
+      right 10px
+
+.wrap-info
+  margin: 0 auto
+  padding 75px 0 0 0
+  width: 100%
+  max-width: 751px
+
+  @media (max-width: 900px)
+    padding-top 8.3vw
+
+  @media (max-width: 360px)
+    padding-top 30px
+
+.info
+  width: 100%
+
+  &__header
+    font-family 'Montserrat Bold'
+    font-style normal
+    font-weight 700
+    font-size 56px
+    line-height 68px
+    text-align center
+    letter-spacing 0.02em
+    color #0A121E
+    margin 0px
+    padding 15px 0
+
+    @media (max-width: 560px)
+      font-size 10vw
+
+    @media (max-width: 360px)
+      font-size 36px
+
+    @media (max-width: 556px)
+      line-height 12.2vw
+
+    @media (max-width: 360px)
+      line-height 44px
+
+  &__text
+    font-family Montserrat
+    font-size 18px
+    font-weight 400
+    line-height 30px
+    letter-spacing 0.02em
+    text-align center
+    margin 0px
+    padding 15px 0
+    transition padding 0.8s ease
+
+    @media (max-width: 405px)
+      font-size 4.4vw
+
+    @media (max-width: 576px)
+      font-size 16px
+      padding-top 1px
+
+.wrap-box
+  margin 0 auto
+  padding 75px 17px 20px 17px
+  width 100%
+  position relative
+  transition padding 0.8s ease
+
+  @media (max-width: 768px)
+    padding 0 7px
+
+.box-group
+  display flex
+  flex-wrap wrap
+  justify-content space-between
+
+  width 100%
+  box-sizing border-box
+  padding 48px 0 0 0
+
+  @media (max-width: 454px)
+    padding-top 10.5vw
+
+  @media (max-width: 360px)
+    padding-top 38px
+
+.box
+  display flex
+  flex-wrap wrap
+  margin 0px
+  padding 0px
+
+  &--small
+    width 50%
+    padding 0 0 62px 0
+    align-content: flex-start;
+
+    @media (max-width: 558px)
+      padding-bottom 11.1vw
+
+    @media (max-width: 360px)
+      padding-bottom 40px
+
+  &--big
+    width 100%
+    height 100%
+    padding 0 12px 12px 12px
+    align-items center
+
+    @media (max-width: 1080px)
+      padding-left 1.1vw
+      padding-right 1.1vw
+
+    @media (max-width: 360px)
+      align-content: flex-start;
+      padding-bottom 12px
+      padding-left 4px
+      padding-right 4px
+
+  &--center
+    justify-content center
+
+  &--right
+    @media (min-width: 768px)
+      justify-content right
+
+  &__text
+    display block
+    margin 0px
+    padding 30px 0 0 0
+    font-family Montserrat
+    font-size 14px
+    font-weight 600
+    line-height 26px
+    letter-spacing 0.04em
+    text-align center
+    color #0A121E
+    width 100%
+
+    @media (max-width: 540px)
+      padding-top 5.5vw
+
+    @media (max-width: 360px)
+      padding-top 20px
+
+  &__icon
+    width 65px
+    height 65px
+
+  &__image
+    -webkit-box-shadow 0px 12px 24px rgba(0, 29, 86, 0.2)
+    -moz-box-shadow 0px 12px 24px rgba(0, 29, 86, 0.2)
+    box-shadow 0px 12px 24px rgba(0, 29, 86, 0.2)
+    border-radius 40px
+    width 100%
+    max-width 457px
+
+.wrap-slider
+  margin 58px auto 0 auto
+  padding 0 0 60px 0
+  width 100%
+  max-width 1140px
+  overflow hidden
+  position relative
+
+.slider
+
+  &__header
+    margin 0px
+    padding 90px 0 30px 0
+    font-family Montserrat
+    font-size 42px
+    font-weight 700
+    letter-spacing 0.05em
+    text-align center
+    color #FFF
+
+    @media (max-width: 1080px)
+      padding-bottom 2.8vw
+
+    @media (max-width: 504px)
+      font-size 8.3vw
+
+    @media (max-width: 531px)
+      padding-top 16.9vw
+
+    @media (max-width: 360px)
+      padding-top 61px
+      padding-bottom 10px
+      font-size 30px
+
+.wrap-slider-big
+  padding 0 12px
+
+  @media (max-width: 360px)
+    padding-left 10px
+    padding-right 10px
+
+.slider-big
+  margin 31px auto 45px auto
+  padding 0px
+  max-width 750px
+  height 420px
+  border-radius: 40px
+  overflow hidden
+  -webkit-box-shadow 0px 20px 50px 0px rgba(0,0,0,0.502)
+  -moz-box-shadow 0px 20px 50px 0px rgba(0,0,0,0.502)
+  box-shadow 0px 20px 50px 0px rgba(0,0,0,0.502)
+
+  @media (max-width: 540px)
+    margin-bottom 8.3vw
+
+  @media (max-width: 444px)
+    height 94.4vw
+
+  @media (max-width: 360px)
+    margin-bottom 30px
+    width 100%
+    height 340px
+
+  &__image
+    width 100%
+    height 100%
+    object-fit cover
+
+.wrap-slider-nav
+  padding-left 33px
+
+.slider-nav
+  margin 0 auto
+  padding 0 60px
+  width 100%
+
+  @media (max-width: 767px)
+    padding-left 0px
+    padding-right 0px
+
+  &__image
+    margin 0 auto
+    width 165px
+    height 165px
+    border-radius 40px
+    cursor pointer
+
+    @media (max-width: 720px)
+      border-radius 5.5vw
+
+    @media (max-width: 742px)
+      width 22.2vw
+      height 22.2vw
+
+    @media (max-width: 360px)
+      width 80px
+      height 80px
+      border-radius 20px
+
+.slick
+
+  &-track
+    height 100%
+
+  &-list
+    height 100%
+    position relative
+    display block
+    overflow hidden
+    margin 0
+    padding 0
+    border-radius 40px
+
+    @media (max-width: 767px)
+      border-radius 0px
+
+  &-arrow
+    font-size 0
+    line-height 0
+    position absolute
+    top 50%
+    display block
+    width 57px
+    height 57px
+    padding 0
+    -webkit-transform translate(0, -50%)
+    -ms-transform translate(0, -50%)
+    transform translate(0, -50%)
+    cursor pointer
+    color transparent
+    border none
+    outline none
+    background transparent
+
+  &-prev
+    left 0px
+
+    &:before
+      display block
+      content ""
+      width 57px
+      height 57px
+      background-image url(../images/arrow-prev.png)
+
+  &-next
+    right 0px
+
+    &:before
+      display block
+      content ""
+      width 57px
+      height 57px
+      background-image url(../images/arrow-next.png)
+
+  &-current &-nav__image
+    border solid 1px #FFF
+
+.modal
+
+  &-header
+    font-family Montserrat
+    font-size 14px
+    color #f8f9fa
+
+  &-image
+    width 100%
+    height 100%
+    object-fit contain
+
+  &-prev
+    font-family Montserrat
+
+  &-next
+    font-family Montserrat
+
+  &-loading
+    width 100%
+    height 100%
+    display flex
+    justify-content center
+    align-items center

@@ -15,9 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import include
+from django.conf import settings
+from django.conf.urls.static import static
 from astra import views as astra_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', astra_views.index, name='index'),
+    path('filer/', include('filer.urls')),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+

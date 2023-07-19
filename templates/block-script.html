@@ -1,0 +1,101 @@
+{% load static %}
+<script type="text/javascript" src="{% static 'astra/js/jquery-3.7.0.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'astra/js/jquery.touchSwipe.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'astra/bootstrap/js/bootstrap.bundle.js' %}"></script>
+<script type="text/javascript" src="{% static 'astra/slick/slick.min.js' %}"></script>
+
+<script type="text/javascript">
+    const my_modal = new bootstrap.Modal("#modal")
+
+    function get_current_slide() {
+        $(".modal-body").html($(".slick-current").html())
+        $(".modal-title").html($(".modal-body").find(".slider-big__image").attr("alt"))
+        $(".modal-body").find(".slider-big__image").addClass("modal-image")
+        $(".modal-body").find(".slider-big__image").removeClass("slider-big__image")
+    }
+
+    $(document).ready(function(){
+
+        $(".slider-big").slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            fade: true,
+            asNavFor: ".slider-nav"
+        })
+
+        $(".slider-nav").slick({
+            infinity: true,
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            centerMode: true,
+            centerPadding: 0,
+            asNavFor: ".slider-big",
+            dots: false,
+            focusOnSelect: true,
+            responsive: [
+                {
+                    breakpoint: 1000,
+                    settings: {
+                        slidesToShow: 4,
+                    }
+                },
+                {
+                    breakpoint: 830,
+                    settings: {
+                        slidesToShow: 3,
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        centerPadding: "45px",
+                        slidesToShow: 3,
+                        arrows: false,
+                    }
+                }
+            ]
+        })
+
+        $(".navbar-nav__link").click(function (){
+            $('#navbarContent').collapse('hide');
+        })
+
+        $(".slider-big").on("beforeChange", function(event, slick, currentSlide, nextSlide){
+            $(".modal-body").html("<div class=\"modal-loading\"><img src=\"{% static 'astra/images/loading.gif' %}\"></div>")
+            $(".modal-title").html("")
+        })
+
+        $(".slider-big").on("afterChange", function(event, slick, currentSlide, nextSlide){
+            get_current_slide()
+        })
+
+        $(".slider-big__image").click(function () {
+            get_current_slide()
+        })
+
+        $(".modal-body").swipe( {
+            swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+                if (direction === "up") {
+                    my_modal.hide();
+                }
+                if (direction === "left") {
+                    $(".slider-big").slick("slickNext")
+                }
+                if (direction === "right") {
+                    $(".slider-big").slick("slickPrev")
+                }
+            },
+            threshold: 75
+        })
+
+        $(".modal-prev").click(function() {
+            $('.slider-big').slick("slickPrev")
+        })
+
+        $(".modal-next").click(function() {
+            $(".slider-big").slick("slickNext")
+        })
+    })
+
+</script>

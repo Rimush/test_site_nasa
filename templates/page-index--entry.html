@@ -1,0 +1,42 @@
+{% extends "page-index.html" %}
+{% load thumbnail %}
+
+{% block menu %}
+    <ul class="navbar-nav navbar-nav--my background-color--dark">
+        {% for item in menu %}
+        <li class="navbar-nav__item">
+            <a href="{{ item.link }}" class="navbar-nav__link">{{ item.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock menu %}
+
+{% block plus %}
+    <div class="box-group">
+        {% for item in plus %}
+        <div class="box box--small box--center">
+            <img class="box__icon" src="{{ item.image.url }}">
+            <h3 class="box__text">{{ item.text }}</h3>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock plus %}
+
+{% block slider-big %}
+    <div class="wrap-slider-big">
+        <div class="slider-big">
+            {% for item in slider %}
+            <a href="#" class="slider-big__image" data-bs-toggle="modal" data-bs-target="#modal"><img class="slider-big__image" alt="{{ item.image.title }}" src="{{ item.image.url }}"></a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock slider-big %}
+
+{% block slider-nav %}
+    <div class="slider-nav">
+        {% for item in slider %}
+            <div><img class="slider-nav__image" src="{% thumbnail item.image 165x165 crop %}"></div>
+        {% endfor %}
+    </div>
+{% endblock slider-nav %}
+

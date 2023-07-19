@@ -1,10 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% load static %}
+{% load thumbnail %}
+<!doctype html>
+<html lang="ru">
+	<head>
+		<title>{{ config.header }}</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		{% include "block-link.html" %}
+	</head>
+	<body>
 
-</body>
+		<nav class="navbar fixed-top navbar-expand-md background-color--dark navbar--height">
+			<div class="container-xl p-0 position-relative justify-content-start container--max-1200">
+				<button class="navbar-toggler navbar-toggler--my collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false">
+					<span class="navbar-toggler-my-icon"></span>
+				</button>
+				<a href="#" class="navbar-brand navbar-brand--my"><img class="navbar-brand__image" src="{% static 'astra/images/logo.png' %}"></a>
+				<form action="" class="auth">
+					<button href="#" class="btn btn__auth">Вход</button>
+				</form>
+				<div class="navbar-collapse navbar-collapse--my collapse" id="navbarContent">
+					{% block menu %}{% endblock menu %}
+				</div>
+			</div>
+		</nav>
+
+		<div class="substrate"></div>
+
+		<main class="container-xl container--max-1200 container--bg-grey">
+			<div class="wrap-info">
+				<div class="info">
+					<h1 class="info__header">{{ config.header }}</h1>
+					<p class="info__text">{{ config.description }}</p>
+				</div>
+			</div>
+
+			<div class="wrap-box">
+				<div class="anchor" id="plus"></div>
+				<div class="row">
+					<div class="col-12 col-md-6 p-0">
+						{% block plus %}{% endblock plus %}
+					</div>
+					<div class="col-12 col-md-6 p-0">
+						<div class="box box--big box--center box--right">
+							<img class="box__image" alt="NASA" src="{% static 'astra/images/space.png' %}">
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<section class="container-fluid p-0 background-color--gray">
+			<div class="wrap-slider">
+				<div class="anchor" id="photo"></div>
+				<div class="slider">
+					<h3 class="slider__header">Фотографии</h3>
+					{% block slider-big %}{% endblock slider-big %}
+					{% block slider-nav %}{% endblock slider-nav %}
+				</div>
+			</div>
+		</section>
+
+		<div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modal-label" aria-hidden="true">
+			<div class="modal-dialog modal-fullscreen">
+				<div class="modal-content background-color--gray">
+					<div class="modal-header">
+						<h5 class="modal-title" id="modal-label"></h5>
+						<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body"></div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-outline-light modal-next">Предыдущая</button>
+						<button type="button" class="btn btn-outline-light modal-prev">Следующая</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% include "block-script.html" %}
+	</body>
 </html>
