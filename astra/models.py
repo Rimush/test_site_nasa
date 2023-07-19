@@ -5,13 +5,6 @@ from filer.models.filemodels import File
 from filer import settings as filer_settings
 
 
-@classmethod
-def matches_file_type(cls, iname, ifile, mime_type):
-    video_types = ['application/vnd.dvb.ait', 'video/x-sgi-movie', 'video/mp4', 'video/mpeg',
-                   'video/x-msvideo', 'video/x-ms-wmv', 'video/ogg', 'video/webm', 'video/quicktime']
-    return mime_type in video_types
-
-
 class Menu(models.Model):
     title = models.CharField(verbose_name='Текст', max_length=20, blank=False)
     link = models.CharField(verbose_name='Ссылка', max_length=256, blank=False)
