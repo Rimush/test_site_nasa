@@ -1,1 +1,4 @@
 *.pyc
+astra/__pycache__/
+core/__pycache__/
+venv/
