@@ -26,7 +26,7 @@
     <div class="wrap-slider-big">
         <div class="slider-big">
             {% for item in slider %}
-            <a href="#" class="slider-big__image" data-bs-toggle="modal" data-bs-target="#modal"><img class="slider-big__image" alt="{{ item.image.title }}" src="{{ item.image.url }}"></a>
+            <a href="#" class="slider-big__image" data-bs-toggle="modal" data-bs-target="#modal"><img class="slider-big__image" alt="{{ item.alt }}" src="{{ item.image.url }}"></a>
             {% endfor %}
         </div>
     </div>
